@@ -32,9 +32,8 @@ object ServiceBuilder {
         .addConverterFactory(GsonConverterFactory.create(gson))
         .client(client)
         .build()
-        .create(EmployeesEndpoint::class.java)
 
-    fun buildService(): EmployeesEndpoint {
+    fun buildRetrofit(): Retrofit {
         return retrofit
     }
 }

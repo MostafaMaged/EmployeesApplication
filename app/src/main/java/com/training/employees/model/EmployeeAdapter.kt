@@ -1,13 +1,15 @@
 package com.training.employees.model
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.training.employees.R
 
-class EmployeeAdapter(private val employeesList: List<Employee>, val clickListener: (Employee) -> Unit) :
+class EmployeeAdapter(
+    private val employeesList: List<Employee>,
+    val clickListener: (Employee) -> Unit
+) :
     RecyclerView.Adapter<EmployeeAdapter.EmployeeHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeeHolder {
@@ -17,7 +19,7 @@ class EmployeeAdapter(private val employeesList: List<Employee>, val clickListen
 
     override fun onBindViewHolder(holder: EmployeeHolder, position: Int) {
         val employee: Employee = employeesList[position]
-        holder.itemView.setOnClickListener {clickListener(employee)}
+        holder.itemView.setOnClickListener { clickListener(employee) }
         holder.bind(employee)
     }
 
