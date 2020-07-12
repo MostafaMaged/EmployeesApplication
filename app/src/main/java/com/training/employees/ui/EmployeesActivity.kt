@@ -37,7 +37,7 @@ class EmployeesActivity : AppCompatActivity(), IEmployeesView {
         employeesComponent!!.inject(this)
 
         if (savedInstanceState == null) {
-            employeePresenter.makeApiCall(this::onResponse, this::onFailure)
+            employeePresenter.getEmployees(this::onResponse, this::onFailure)
         } else {
             this.employeesList = savedInstanceState.getParcelableArrayList(BUNDLE_EMPLOYEE)!!
             displayEmployeeList()
@@ -48,7 +48,7 @@ class EmployeesActivity : AppCompatActivity(), IEmployeesView {
         retry_button.visibility = View.GONE
         no_connection_image.visibility = View.GONE
         retry_button.setOnClickListener {
-            employeePresenter.makeApiCall(this::onResponse, this::onFailure)
+            employeePresenter.getEmployees(this::onResponse, this::onFailure)
         }
     }
 
